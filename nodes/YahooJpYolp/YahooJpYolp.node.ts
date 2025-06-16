@@ -8,18 +8,18 @@ import { NodeConnectionType } from 'n8n-workflow';
  * 宣言型ノードの場合、通常はINodeTypeとINodeTypeDescriptionがインポートされます。
  * ノードの主要なロジックを定義するクラスを作成し、INodeTypeインターフェースを実装します。
  */
-export class YahooApisGeocode implements INodeType {
+export class YahooJpYolp implements INodeType {
   // ノードのメタデータを定義します。INodeTypeDescription型を持つ
 	description: INodeTypeDescription = {
-		displayName: 'Yahoo APIs Geocode',
-		name: 'yahooApisGeocode',
+		displayName: 'Yahoo Jp Yolp',
+		name: 'yahooJpYolp',
     icon: 'file:nasapics.svg',
 		group: ['transform'],     //  ワークフローの実行時にノードがどのように振る舞うか trigger, schedule, input, output
 		version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
 		description: 'Yahoo APIs Geocode',
 		defaults: {
-			name: 'Example Node',
+			name: 'Map and local information API provided by Yahoo! Maps for developers',
 		},
 		inputs: [NodeConnectionType.Main],  // 入力コネクタの名前を定義します。単一のコネクタの場合は['main']と指定します
 		outputs: [NodeConnectionType.Main],  // 出力コネクタの名前を定義します。単一のコネクタの場合は['main']と指定します
