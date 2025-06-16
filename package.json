@@ -1,7 +1,7 @@
 {
-  "name": "yahoo-apis-geocode",
+  "name": "yahoo-jp-yolp",
   "version": "0.1.0",
-  "description": "Yahoo APIs Geocode",
+  "description": "Yahoo JP YOLP",
   "keywords": [
     "n8n-community-node-package"
   ],

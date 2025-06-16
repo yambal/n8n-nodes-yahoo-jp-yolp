@@ -38,7 +38,7 @@ export class YahooJpYolp implements INodeType {
     },
 		properties: [ // ノードの動作を定義する重要な部分
 			{
-				displayName: 'Resource',  // リソースオブジェクト: APIで操作する「リソース」（例: "Card"）を定義します。displayNameは常に'Resource'、nameは常に'resource'とするのが標準です
+				displayName: 'Resource',
 				name: 'resource',
 				type: 'options',
         default: 'geoCoder',
@@ -90,6 +90,21 @@ export class YahooJpYolp implements INodeType {
             value: 'geocoding',
             action: 'Geocode',
             description: 'Get point',
+            routing: {
+              request: {
+                method: 'GET',
+                url: '/geocode/V1/geoCoder',
+                qs: {
+                  output: 'json',
+                }
+              }
+            }
+          },
+          {
+            name: 'Geocode2',
+            value: 'geocoding2',
+            action: 'Geocode2',
+            description: 'Get point2',
             routing: {
               request: {
                 method: 'GET',
