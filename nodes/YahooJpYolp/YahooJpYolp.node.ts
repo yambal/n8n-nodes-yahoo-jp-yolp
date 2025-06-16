@@ -16,10 +16,10 @@ export class YahooJpYolp implements INodeType {
     icon: 'file:nasapics.svg',
 		group: ['transform'],     //  ワークフローの実行時にノードがどのように振る舞うか trigger, schedule, input, output
 		version: 1,
-    subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
-		description: 'Yahoo APIs Geocode',
+    subtitle: '={{$parameter["operation"]}}',
+		description: 'Map and local information API provided by Yahoo! Maps for developers',
 		defaults: {
-			name: 'Map and local information API provided by Yahoo! Maps for developers',
+			name: 'Yahoo Jp YOLP',
 		},
 		inputs: [NodeConnectionType.Main],  // 入力コネクタの名前を定義します。単一のコネクタの場合は['main']と指定します
 		outputs: [NodeConnectionType.Main],  // 出力コネクタの名前を定義します。単一のコネクタの場合は['main']と指定します
@@ -36,60 +36,19 @@ export class YahooJpYolp implements INodeType {
         'Content-Type': 'application/json',
       },
     },
-		properties: [ // ノードの動作を定義する重要な部分
-			{
-				displayName: 'Resource',
-				name: 'resource',
-				type: 'options',
-        default: 'geoCoder',
-        noDataExpression: true,
-				options: [
-          {
-            name: 'Geocoder',
-            value: 'geoCoder',
-          }
-        ]
-			},
-      {
-				displayName: 'Query',
-				name: 'query',
-				type: 'string',
-        default: '東京都港区六本木',
-        noDataExpression: true,
-        displayOptions: {
-          show: {
-            resource: [
-              'geoCoder',
-            ]
-          }
-        },
-        routing: {
-          request: {
-            qs: {
-              query: '={{$parameter.query}}',
-            }
-          }
-        }
-			},
+		properties: [ // ノードの動作を定義する重要な部分,
       {
         displayName: 'Operation', // 操作オブジェクト: 特定のリソースに対して実行できる「操作」（例: "Get all"）を定義します。options配列内に各操作の動作（ルーティング、REST動詞など）を記述します。
         name: 'operation',
         type: 'options',
-        default: 'geocoding',
+        default: 'Geocode',
         noDataExpression: true,
-        displayOptions: {
-          show: {
-            resource: [
-              'geoCoder',
-            ]
-          }
-        },
         options: [
           {
             name: 'Geocode',
-            value: 'geocoding',
+            value: 'Geocode',
             action: 'Geocode',
-            description: 'Get point',
+            description: 'Specify an address and output its location information (latitude and longitude)',
             routing: {
               request: {
                 method: 'GET',
@@ -117,6 +76,28 @@ export class YahooJpYolp implements INodeType {
           }
         ]
       },
+      {
+				displayName: 'Geocode Query',
+				name: 'geocodeQuery',
+				type: 'string',
+        default: '東京都港区六本木',
+        description: 'Address to get location information',
+        noDataExpression: true,
+        displayOptions: {
+          show: {
+            operation: [
+              'Geocode',
+            ]
+          }
+        },
+        routing: {
+          request: {
+            qs: {
+              query: '={{$parameter.geocodeQuery}}',
+            }
+          }
+        }
+			},
 		],
     usableAsTool: true,
 	}
