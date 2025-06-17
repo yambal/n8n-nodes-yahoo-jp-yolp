@@ -17,7 +17,7 @@ Yahoo! Open Local Platform（YOLP）は、Yahoo!マップがデベロッパー�
 
 ## Installation
 
-Follow the **Installation guide** in the \[n8n community nodes documentation] ([docs.n8n.io][1], [docs.n8n.io][2]).
+Follow the **Installation guide** in the \[n8n community nodes documentation]
 For self‑hosted instances: go to **Settings → Community Nodes**, click **Install**, enter `n8n‑nodes‑yahoo‑jp‑yolp`, acknowledge risks, and proceed ([docs.n8n.io][3]).
 
 ---
@@ -51,14 +51,14 @@ This node requires an **AppId** (API key) from Yahoo! Developer Dashboard:
 ## Compatibility
 
 - **Minimum supported n8n version:** v1.97.1
-- **Tested versions:** v1.97.1 (latest stable as of June 2025) ([npmjs.com][4])
+- **Tested versions:** v1.97.1 (latest stable as of June 2025)
 - **Known issues:** None reported so far
 
 ---
 
 ## Resources
 
-- \[Installation guide for community nodes – n8n Docs] ([npmjs.com][5])
+- \[Installation guide for community nodes – n8n Docs]
 - \[Submit community nodes – n8n Docs]&#x20;
 - Yahoo! Open Local Platform (YOLP) API documentation:
 
@@ -71,4 +71,4 @@ This node requires an **AppId** (API key) from Yahoo! Developer Dashboard:
 
 | Version | Description                                         |
 | ------- | --------------------------------------------------- |
-| 1.0.0   | Initial release: Geocode & Reverse Geocoder support |
+| 0.0.2   | Initial release: Geocode & Reverse Geocoder support |

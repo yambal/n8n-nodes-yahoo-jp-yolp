@@ -13,7 +13,7 @@ export class YahooJpYolp implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Yahoo Jp Yolp',
 		name: 'yahooJpYolp',
-    icon: 'file:nasapics.svg',
+    icon: 'file:yahooJpYolp.svg',
 		group: ['transform'],     //  ワークフローの実行時にノードがどのように振る舞うか trigger, schedule, input, output
 		version: 1,
     subtitle: '={{$parameter["operation"]}}',
