@@ -1,6 +1,6 @@
 {
 	"node": "n8n-nodes-base.YahooJpYolp",
-	"nodeVersion": "1.0",
+	"nodeVersion": 1,
 	"codexVersion": "1.0",
 	"categories": [
 		"Miscellaneous"
@@ -8,12 +8,12 @@
 	"resources": {
 		"credentialDocumentation": [
 			{
-				"url": ""
+				"url": "https://e.developer.yahoo.co.jp/register"
 			}
 		],
 		"primaryDocumentation": [
 			{
-				"url": ""
+				"url": "https://developer.yahoo.co.jp/start/"
 			}
 		]
 	}

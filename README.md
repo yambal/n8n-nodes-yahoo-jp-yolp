@@ -2,7 +2,7 @@
 
 This is an n8n community node. It lets you use **Yahoo JP YOLP** (Yahoo!ローカルサーチAPI、Yahoo!ジオコーダAPI、Yahoo!リバースジオコーダAPI) in your n8n workflows.
 
-Yahoo! Open Local Platform（YOLP）は、Yahoo!マップがデベロッパー向けに提供する地図・地域情報のAPI・SDKです。
+Yahoo! Open Local Platform (YOLP) is a map and local information API and SDK provided by Yahoo! Maps for developers.
 
 [n8n](https://n8n.io/) is a [fair‑code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
