@@ -60,14 +60,14 @@ export class YahooJpYolp implements INodeType {
             }
           },
           {
-            name: 'Geocode2',
-            value: 'geocoding2',
-            action: 'Geocode2',
+            name: 'Reverse Geocoder',
+            value: 'Reverse Geocoder',
+            action: 'Reverse geocoder',
             description: 'Get point2',
             routing: {
               request: {
                 method: 'GET',
-                url: '/geocode/V1/geoCoder',
+                url: '/geoapi/V1/reverseGeoCoder',
                 qs: {
                   output: 'json',
                 }
@@ -83,21 +83,158 @@ export class YahooJpYolp implements INodeType {
         default: '東京都港区六本木',
         description: 'Address to get location information',
         noDataExpression: true,
-        displayOptions: {
-          show: {
-            operation: [
-              'Geocode',
-            ]
-          }
-        },
         routing: {
           request: {
             qs: {
               query: '={{$parameter.geocodeQuery}}',
             }
           }
+        },
+        displayOptions: {
+          show: {
+            operation: [
+              'Geocode',
+            ]
+          }
         }
 			},
+      {
+        displayName: 'Address Level',
+        name: 'geocodeAddressLevel',
+        type: 'options',
+        default: '3',
+        description: 'Address detail level',
+        options: [
+          {
+            name: 'Prefecture Level',
+            value: '1',
+          },
+          {
+            name: 'Municipality Level',
+            value: '2',
+          },
+          {
+            name: 'Town or District Level',
+            value: '3',
+          },
+          {
+            name: 'Block or Subdistrict Level',
+            value: '4',
+          }
+        ],
+        routing: {
+          request: {
+            qs: {
+              al: '={{$parameter.geocodeAddressLevel}}',
+            }
+          }
+        },
+        displayOptions: {
+          show: {
+            operation: [
+              'Geocode',
+            ]
+          }
+        }
+      },
+      {
+        displayName: 'Address Range',
+        name: 'geocodeAddressRange',
+        type: 'options',
+        default: 'le',
+        description: 'Search scope of address levels',
+        options: [
+          {
+            name: 'Greater Equal',
+            value: 'ge',
+          },
+          {
+            name: 'Less Equal',
+            value: 'le',
+          },
+          {
+            name: 'Equal',
+            value: 'eq',
+          }
+        ],
+        routing: {
+          request: {
+            qs: {
+              ar: '={{$parameter.geocodeAddressRange}}',
+            }
+          }
+        },
+        displayOptions: {
+          show: {
+            operation: [
+              'Geocode',
+            ]
+          }
+        }
+      },
+      {
+        displayName: 'Results',
+        name: 'geocodeResults',
+        type: 'number',
+        default: 10,
+        description: 'Number of results to return',
+        routing: {
+          request: {
+            qs: {
+              results: '={{$parameter.geocodeResults}}',
+            }
+          }
+        },
+        displayOptions: {
+          show: {
+            operation: [
+              'Geocode',
+            ]
+          }
+        }
+      },
+      {
+        displayName: 'Latetude',
+        name: 'reverseGeoCoderLatetude',
+        type: 'number',
+        default: 35,
+        description: 'Is Latetude',
+        routing: {
+          request: {
+            qs: {
+              lat: '={{$parameter.reverseGeoCoderLatetude}}',
+            }
+          }
+        },
+        displayOptions: {
+          show: {
+            operation: [
+              'Reverse Geocoder',
+            ]
+          }
+        }
+      },
+      {
+        displayName: 'Longitude',
+        name: 'reverseGeoCoderLongitude',
+        type: 'number',
+        default: 135,
+        description: 'Is Longitude',
+        routing: {
+          request: {
+            qs: {
+              lon: '={{$parameter.reverseGeoCoderLongitude}}',
+            }
+          }
+        },
+        displayOptions: {
+          show: {
+            operation: [
+              'Reverse Geocoder',
+            ]
+          }
+        }
+      }
 		],
     usableAsTool: true,
 	}
