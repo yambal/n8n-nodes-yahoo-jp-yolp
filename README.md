@@ -1,48 +1,74 @@
-# n8n-nodes-_node-name_
+# n8n-nodes-yahoo-jp-yolp
 
-This is an n8n community node. It lets you use _app/service name_ in your n8n workflows.
+This is an n8n community node. It lets you use **Yahoo JP YOLP** (Yahoo!ローカルサーチAPI、Yahoo!ジオコーダAPI、Yahoo!リバースジオコーダAPI) in your n8n workflows.
 
-_App/service name_ is _one or two sentences describing the service this node integrates with_.
+Yahoo! Open Local Platform（YOLP）は、Yahoo!マップがデベロッパー向けに提供する地図・地域情報のAPI・SDKです。
 
-[n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
+[n8n](https://n8n.io/) is a [fair‑code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
-[Installation](#installation)  
-[Operations](#operations)  
-[Credentials](#credentials)  <!-- delete if no auth needed -->  
-[Compatibility](#compatibility)  
-[Usage](#usage)  <!-- delete if not using this section -->  
-[Resources](#resources)  
-[Version history](#version-history)  <!-- delete if not using this section -->  
+[Installation](#installation)
+[Operations](#operations)
+[Credentials](#credentials)
+[Compatibility](#compatibility)
+[Resources](#resources)
+[Version history](#version-history)
+
+---
 
 ## Installation
 
-Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n community nodes documentation.
+Follow the **Installation guide** in the \[n8n community nodes documentation] ([docs.n8n.io][1], [docs.n8n.io][2]).
+For self‑hosted instances: go to **Settings → Community Nodes**, click **Install**, enter `n8n‑nodes‑yahoo‑jp‑yolp`, acknowledge risks, and proceed ([docs.n8n.io][3]).
+
+---
 
 ## Operations
 
-_List the operations supported by your node._
+- **Geocode**
+
+  - Input: Address string
+  - Output: Latitude and longitude
+  - Endpoint: `https://map.yahooapis.jp/geocode/V1/geoCoder`
+
+- **Reverse Geocoder**
+
+  - Input: Latitude and longitude
+  - Output: Address details
+  - Endpoint: `https://map.yahooapis.jp/geoapi/V1/reverseGeoCoder`
+
+---
 
 ## Credentials
 
-_If users need to authenticate with the app/service, provide details here. You should include prerequisites (such as signing up with the service), available authentication methods, and how to set them up._
+This node requires an **AppId** (API key) from Yahoo! Developer Dashboard:
+
+1. Go to the [Yahoo! Developer Dashboard](https://e.developer.yahoo.co.jp/dashboard/), sign in or sign up.
+2. Create an application and obtain your **AppId**.
+3. Paste the AppId into the `AppId` credential field in n8n.
+
+---
 
 ## Compatibility
 
-_State the minimum n8n version, as well as which versions you test against. You can also include any known version incompatibility issues._
+- **Minimum supported n8n version:** v1.97.1
+- **Tested versions:** v1.97.1 (latest stable as of June 2025) ([npmjs.com][4])
+- **Known issues:** None reported so far
 
-## Usage
-
-_This is an optional section. Use it to help users with any difficult or confusing aspects of the node._
-
-_By the time users are looking for community nodes, they probably already know n8n basics. But if you expect new users, you can link to the [Try it out](https://docs.n8n.io/try-it-out/) documentation to help them get started._
+---
 
 ## Resources
 
-* [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)
-* _Link to app/service documentation._
+- \[Installation guide for community nodes – n8n Docs] ([npmjs.com][5])
+- \[Submit community nodes – n8n Docs]&#x20;
+- Yahoo! Open Local Platform (YOLP) API documentation:
+
+  - Geocoder: `https://developer.yahoo.co.jp/webapi/map/openlocalplatform/v1/geocoder.html`
+  - ReverseGeocoder: `https://developer.yahoo.co.jp/webapi/map/openlocalplatform/v1/reversegeocoder.html`
+
+---
 
 ## Version history
 
-_This is another optional section. If your node has multiple versions, include a short description of available versions and what changed, as well as any compatibility impact._
-
-
+| Version | Description                                         |
+| ------- | --------------------------------------------------- |
+| 1.0.0   | Initial release: Geocode & Reverse Geocoder support |
