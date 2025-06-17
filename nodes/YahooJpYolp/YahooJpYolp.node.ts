@@ -82,7 +82,7 @@ export class YahooJpYolp implements INodeType {
 				type: 'string',
         default: '東京都港区六本木',
         description: 'Address to get location information',
-        noDataExpression: true,
+        noDataExpression: false,
         routing: {
           request: {
             qs: {
